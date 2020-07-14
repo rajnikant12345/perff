@@ -1,0 +1,56 @@
+{
+  "parallel": 1,
+  "nae_ip_port": "35.175.250.171:9000",
+  "tests":[
+    {
+      "name":"version",
+      "xml_response_endtag":"</VersionResponse>",
+      "xml": "<VersionRequest><MessageVersion>1.0</MessageVersion><ID>1</ID><VersionList><Version>3.0</Version><Version>2.9</Version><Version>2.8</Version><Version>2.7</Version><Version>2.6</Version><Version>2.5</Version><Version>2.4</Version><Version>2.3</Version><Version>2.2</Version><Version>2.1</Version><Version>2.0.1</Version><Version>2.0</Version><Version>1.9</Version></VersionList></VersionRequest>",
+      "repeat": 1,
+      "measure_time": false,
+      "log": false
+    },
+    {
+      "name":"auth",
+      "xml_response_endtag":"</AuthResponse>",
+      "xml": "<AuthRequest><ID>2</ID><User>jce1</User><Passwd>Asdf@1234</Passwd></AuthRequest>",
+      "repeat": 1,
+      "measure_time": false,
+      "log": false
+    },
+    {
+      "random_key_name":false,
+      "name":"keygen",
+      "xml_response_endtag":"</KeyGenResponse>",
+      "xml": "<KeyGenRequest><ID>test</ID><KeyName>truth</KeyName><KeySize>256</KeySize><Algorithm>AES</Algorithm><Exportable/><Deletable/></KeyGenRequest>",
+      "repeat": 1,
+      "measure_time": false,
+      "log": false
+    },
+    {
+      "name":"CryptoRequest",
+      "xml_response_endtag":"</CryptoResponse>",
+      "xml": "<CryptoRequest><ID>v6TTwZ5d</ID><Operations><Operation>ENCRYPT</Operation><KeyName>truth</KeyName><Algorithm>AES/CBC/PKCS5Padding</Algorithm></Operations></CryptoRequest><Batch>",
+      "repeat": 1,
+      "measure_time": false,
+      "log": false
+    },
+    {
+      "name":"Data",
+      "xml_response_endtag":"</Data>",
+      "xml": "<Data><Size>64</Size>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Data>",
+      "repeat": 10,
+      "measure_time": true,
+      "log": false
+    },
+    {
+      "random_key_name":false,
+      "name":"KeyDelRequest",
+      "xml_response_endtag":"</KeyDelResponse>",
+      "xml": "<KeyDelRequest><ID>001</ID><KeyName>truth</KeyName></KeyDelRequest>",
+      "repeat": 1,
+      "measure_time": true,
+      "log": true
+    }
+  ]
+}
